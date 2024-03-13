@@ -14,6 +14,7 @@ from ._bicluster import SpectralBiclustering, SpectralCoclustering
 from ._birch import Birch
 from ._bisect_k_means import BisectingKMeans
 from ._dbscan import DBSCAN, dbscan
+from ._mdbscan import MBDSCAN, mdbscan
 from ._hdbscan.hdbscan import HDBSCAN
 from ._kmeans import KMeans, MiniBatchKMeans, k_means, kmeans_plusplus
 from ._mean_shift import MeanShift, estimate_bandwidth, get_bin_seeds, mean_shift
@@ -30,6 +31,7 @@ __all__ = [
     "AgglomerativeClustering",
     "Birch",
     "DBSCAN",
+    "MDBSCAN",
     "OPTICS",
     "cluster_optics_dbscan",
     "cluster_optics_xi",
@@ -42,6 +44,7 @@ __all__ = [
     "SpectralClustering",
     "affinity_propagation",
     "dbscan",
+    "mdbscan",
     "estimate_bandwidth",
     "get_bin_seeds",
     "k_means",

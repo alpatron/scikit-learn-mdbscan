@@ -14,7 +14,7 @@ from ._bicluster import SpectralBiclustering, SpectralCoclustering
 from ._birch import Birch
 from ._bisect_k_means import BisectingKMeans
 from ._dbscan import DBSCAN, dbscan
-from ._mdbscan import MBDSCAN, mdbscan
+from ._mdbscan import MDBSCAN, mdbscan
 from ._hdbscan.hdbscan import HDBSCAN
 from ._kmeans import KMeans, MiniBatchKMeans, k_means, kmeans_plusplus
 from ._mean_shift import MeanShift, estimate_bandwidth, get_bin_seeds, mean_shift

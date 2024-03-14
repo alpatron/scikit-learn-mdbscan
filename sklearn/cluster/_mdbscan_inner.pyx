@@ -9,7 +9,7 @@ cimport numpy as cnp
 cnp.import_array()
 
 
-def dbscan_inner(const cnp.uint8_t[::1] is_core,
+def mdbscan_inner(const cnp.uint8_t[::1] is_core,
                  object[:] neighborhoods1,
                  object[:] neighborhoods2,
                  cnp.npy_intp[::1] labels):

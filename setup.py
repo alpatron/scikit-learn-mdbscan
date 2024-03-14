@@ -202,6 +202,7 @@ extension_config = {
     ],
     "cluster": [
         {"sources": ["_dbscan_inner.pyx"], "language": "c++", "include_np": True},
+        {"sources": ["_mdbscan_inner.pyx"], "language": "c++", "include_np": True},
         {"sources": ["_hierarchical_fast.pyx"], "language": "c++", "include_np": True},
         {"sources": ["_k_means_common.pyx"], "include_np": True},
         {"sources": ["_k_means_lloyd.pyx"], "include_np": True},

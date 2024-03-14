@@ -38,10 +38,10 @@ from ._mdbscan_inner import mdbscan_inner
 )
 def mdbscan(
     X,
+    y=None,
     eps1=0.5,
     eps2=0.25,
     *,
-    Y=None,
     min_samples=5,
     metric1="minkowski",
     metric1_params=None,
@@ -181,15 +181,18 @@ def mdbscan(
 
     est = MDBSCAN(
         eps1=eps1,
+        eps2=eps2,
         min_samples=min_samples,
         metric1=metric1,
         metric1_params=metric1_params,
+        metric2=metric2,
+        metric2_params=metric2_params,
         algorithm=algorithm,
         leaf_size=leaf_size,
         p=p,
         n_jobs=n_jobs,
     )
-    est.fit(X, sample_weight=sample_weight)
+    est.fit(X, y, sample_weight=sample_weight)
     return est.core_sample_indices_, est.labels_
 
 
@@ -376,7 +379,7 @@ class MDBSCAN(ClusterMixin, BaseEstimator):
         n_jobs=None,
     ):
         self.eps1 = eps1
-        self.esp2 = eps2
+        self.eps2 = eps2
         self.min_samples = min_samples
         self.metric1 = metric1
         self.metric1_params = metric1_params
@@ -479,7 +482,7 @@ class MDBSCAN(ClusterMixin, BaseEstimator):
 
         # A list of all core samples found.
         core_samples = np.asarray(n_neighbors >= self.min_samples, dtype=np.uint8)
-        dbscan_inner(core_samples, neighborhoods1, neighborhoods2, labels)
+        mdbscan_inner(core_samples, neighborhoods1, neighborhoods2, labels)
 
         self.core_sample_indices_ = np.where(core_samples)[0]
         self.labels_ = labels

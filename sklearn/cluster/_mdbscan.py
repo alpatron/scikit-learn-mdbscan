@@ -520,7 +520,7 @@ class MDBSCAN(ClusterMixin, BaseEstimator):
         labels : ndarray of shape (n_samples,)
             Cluster labels. Noisy samples are given the label -1.
         """
-        self.fit(X, sample_weight=sample_weight)
+        self.fit(X, y, sample_weight=sample_weight)
         return self.labels_
 
     def _more_tags(self):

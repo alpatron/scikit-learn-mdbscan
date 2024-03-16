@@ -28,9 +28,9 @@ def mdbscan_inner(const cnp.uint8_t[::1] is_core,
         # components, the difference being that we label non-core points as
         # part of a cluster (component), but don't expand their neighborhoods.
         while True:
-            if labels[i] == -1:
+            if labels[i] == -1 and i in neighborhoods2[cluster_begin_i]:
                 labels[i] = label_num
-                if is_core[i] and i in neighborhoods2[cluster_begin_i]:
+                if is_core[i]:
                     neighb = neighborhoods1[i]
                     for i in range(neighb.shape[0]):
                         v = neighb[i]
